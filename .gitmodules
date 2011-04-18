@@ -18,4 +18,4 @@
 	url = https://github.com/msanders/snipmate.vim.git
 [submodule "vim/bundle/vim-puppet"]
 	path = vim/bundle/vim-puppet
-	url = /home/sturm/data/src/vim-puppet
+	url = https://github.com/nistude/vim-puppet.git
