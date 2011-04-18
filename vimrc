@@ -66,7 +66,6 @@ au BufWritePre * :call TrimWhiteSpace()
 au FileType perl set ai cindent
 
 " Puppet
-au BufRead,BufNewFile *.pp set ft=puppet
 au FileType puppet set ai et list sts=2 sw=2
 au FileType puppet :call ExtractSnipsFile('~/.vim/bundle/vim-puppet/snippets/puppet.snippets', &ft)
 
