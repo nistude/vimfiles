@@ -87,6 +87,7 @@ au FileType yaml set ai cindent et list sts=2 sw=2
 " Reminders
 "" nerdcommenter:
 ""   toggle comment: [count]<leader>c<space>
+""   <leader> == \
 "" vim-matchit:
 ""   % to bounce from do to end, etc.
 "" vim-surround:
