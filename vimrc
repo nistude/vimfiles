@@ -62,26 +62,24 @@ au FileAppendPre * :call TrimWhiteSpace()
 au FilterWritePre * :call TrimWhiteSpace()
 au BufWritePre * :call TrimWhiteSpace()
 
-" Perl
-au FileType perl set ai cindent
+" Languages
+au BufRead,BufNewFile *.html.erb set ft=eruby.html
+au BufRead,BufNewFile *.ronn set ft=markdown
+au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
 
-" Puppet
+au FileType cucumber set ai et list sts=2 sw=2
+au FileType eruby set ai cindent et list sts=2 sw=2
+au FileType html set ai cindent et list sts=2 sw=2
+
+au FileType markdown set ai et formatoptions=tcroqn2 list sts=4
+
+au FileType perl set ai cindent
 au FileType puppet set ai et list sts=2 sw=2
 au FileType puppet :call ExtractSnipsFile('~/.vim/bundle/vim-puppet/snippets/puppet.snippets', &ft)
 
-" Rspec
-au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
 au FileType rspec :call ExtractSnipsFile('~/.vim/snippets/rspec.snippets', &ft)
-
-" Ruby
-au FileType cucumber set ai et list sts=2 sw=2
-au FileType eruby set ai cindent et list sts=2 sw=2
 au FileType ruby set ai cindent et list sts=2 sw=2
 
-" Text
-au BufRead,BufNewFile *.ronn set ft=markdown
-au FileType html set ai cindent et list sts=2 sw=2
-au FileType markdown set ai et formatoptions=tcroqn2 list sts=4
 au FileType yaml set ai cindent et list sts=2 sw=2
 
 " Reminders
