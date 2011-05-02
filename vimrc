@@ -23,6 +23,9 @@ call pathogen#helptags()
 filetype plugin indent on
 colorscheme desert
 syntax on
+au BufRead,BufNewFile *.html.erb set ft=eruby.html
+au BufRead,BufNewFile *.ronn set ft=markdown
+au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
 
 " Searching
 set hlsearch
@@ -63,21 +66,19 @@ au FilterWritePre * :call TrimWhiteSpace()
 au BufWritePre * :call TrimWhiteSpace()
 
 " Languages
-au BufRead,BufNewFile *.html.erb set ft=eruby.html
-au BufRead,BufNewFile *.ronn set ft=markdown
-au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
-
 au FileType cucumber set ai et list sts=2 sw=2
 au FileType eruby set ai cindent et list sts=2 sw=2
+au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html set ai cindent et list sts=2 sw=2
+au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
 
 au FileType markdown set ai et formatoptions=tcroqn2 list sts=4
 
 au FileType perl set ai cindent
 au FileType puppet set ai et list sts=2 sw=2
-au FileType puppet :call ExtractSnipsFile('~/.vim/bundle/vim-puppet/snippets/puppet.snippets', &ft)
+au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 
-au FileType rspec :call ExtractSnipsFile('~/.vim/snippets/rspec.snippets', &ft)
+au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType ruby set ai cindent et list sts=2 sw=2
 
 au FileType yaml set ai cindent et list sts=2 sw=2
