@@ -24,6 +24,7 @@ filetype plugin indent on
 colorscheme desert
 syntax on
 au BufRead,BufNewFile *.html.erb set ft=eruby.html
+au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
 
