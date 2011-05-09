@@ -1,2 +1,16 @@
+snippet <%
+	<% ${1} %>
 snippet <%=
 	<%= ${1} %>
+snippet end
+	<% end %>
+snippet form_for
+	<%= form_for(${1}) do |f| %>
+		${2}
+	<% end %>
+snippet if
+	<% if ${1} %>
+		${2}
+	<% end %>
+snippet render
+	<%= render '${1:partial}' %>
