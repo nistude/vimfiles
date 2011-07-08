@@ -2,6 +2,11 @@ snippet divc
 	<div class="${1:name}">
 		${2}
 	</div>
+snippet divcf
+	<div class="field">
+		<%= f.label ${1:symbol} %><br />
+		<%= f.${2:text_field} ${3} %>
+	</div>
 snippet li
 	<li> ${1} </li>
 snippet ul
