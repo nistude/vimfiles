@@ -2,12 +2,16 @@
 let loaded_matchparen = 1
 set modelines=0
 set nocompatible
-"" vim 7.3
-"" set relativenumber
+set relativenumber
 set ruler
 set showcmd
 set showmatch
-set showmode
+
+" Highlighting
+colorscheme desert
+syntax on
+highlight OverLength ctermfg=red
+match OverLength /\%>81v.\+/
 
 " Editing
 set backspace=indent,eol,start
@@ -21,8 +25,6 @@ filetype off " forces reload
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
-colorscheme desert
-syntax on
 au BufRead,BufNewFile *.html.erb set ft=eruby.html
 au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
