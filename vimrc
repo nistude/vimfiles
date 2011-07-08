@@ -11,7 +11,7 @@ set showmatch
 colorscheme desert
 syntax on
 highlight OverLength ctermfg=red
-match OverLength /\%>81v.\+/
+match OverLength /\%>79v.\+/
 
 " Editing
 set backspace=indent,eol,start
