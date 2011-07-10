@@ -26,9 +26,10 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 au BufRead,BufNewFile *.html.erb set ft=eruby.html
+au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
-au BufRead,BufNewFile *_spec.rb set filetype=ruby.rspec
+au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
 
 " Searching
 set hlsearch
