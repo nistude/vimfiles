@@ -26,3 +26,6 @@
 	path = vim/bundle/vim-puppet
 	url = https://github.com/nistude/vim-puppet.git
 	ignore = untracked
+[submodule "vim/bundle/vim-ruby-refactoring"]
+	path = vim/bundle/vim-ruby-refactoring
+	url = https://github.com/ecomba/vim-ruby-refactoring.git
