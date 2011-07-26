@@ -2,7 +2,6 @@
 let loaded_matchparen = 1
 set modelines=0
 set nocompatible
-set relativenumber
 set ruler
 set showcmd
 set showmatch
