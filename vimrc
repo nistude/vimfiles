@@ -75,6 +75,7 @@ au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html set ai cindent et list sts=2 sw=2
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
 
+au FileType json set ai et sts=4
 au FileType markdown set ai et formatoptions=tcroqn2 list sts=4
 
 au FileType perl set ai cindent
