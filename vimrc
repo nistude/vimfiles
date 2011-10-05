@@ -30,6 +30,15 @@ au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
 
+" Folding settings
+" zo -- open fold (right arrow)
+" zc -- close fold
+" syntax or indent
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
+
 " Searching
 set hlsearch
 set ignorecase
@@ -84,6 +93,7 @@ au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType ruby set ai cindent et list sts=2 sw=2
+au FileType ruby set foldenable
 
 au FileType yaml set ai cindent et list sts=2 sw=2
 
