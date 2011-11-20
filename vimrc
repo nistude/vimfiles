@@ -11,6 +11,8 @@ colorscheme desert
 syntax on
 highlight OverLength ctermfg=red
 match OverLength /\%>80v.\+/
+"highlight ColorColumn ctermbg=darkgrey
+"set colorcolumn=80
 
 " Editing
 set backspace=indent,eol,start
@@ -33,11 +35,14 @@ au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
 " Folding settings
 " zo -- open fold (right arrow)
 " zc -- close fold
+" za -- toggle fold
+" zm -- close folds one level (more)
+" zr -- open all folds one level (reduce)
 " syntax or indent
 set foldmethod=syntax
-set foldnestmax=10
+set foldnestmax=5
 set nofoldenable
-set foldlevel=1
+set foldlevel=2
 
 " Searching
 set hlsearch
@@ -88,12 +93,12 @@ au FileType json set ai et sts=4
 au FileType markdown set ai et formatoptions=tcroqn2 list sts=4
 
 au FileType perl set ai cindent
-au FileType puppet set ai et list sts=2 sw=2
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
+au FileType puppet set ai et list sts=2 sw=2
 
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
+au FileType rspec set foldenable foldlevel=2
 au FileType ruby set ai cindent et list sts=2 sw=2
-au FileType ruby set foldenable
 
 au FileType yaml set ai cindent et list sts=2 sw=2
 
