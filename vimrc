@@ -30,7 +30,7 @@ au BufRead,BufNewFile *.html.erb set ft=eruby.html
 au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
-au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
+au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec foldenable foldlevel=2
 
 " Folding settings
 " zo -- open fold (right arrow)
@@ -97,7 +97,6 @@ au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 au FileType puppet set ai et list sts=2 sw=2
 
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
-au FileType rspec set foldenable foldlevel=2
 au FileType ruby set ai cindent et list sts=2 sw=2
 
 au FileType yaml set ai cindent et list sts=2 sw=2
