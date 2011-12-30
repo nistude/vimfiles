@@ -1,5 +1,7 @@
 " General
 let loaded_matchparen = 1
+let xml_use_xhtml = 1
+
 set modelines=0
 set nocompatible
 set ruler
