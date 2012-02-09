@@ -1,0 +1,39 @@
+Editing:
+C   -- delete to EOL + insert mode
+cc  -- change line
+ciX -- change inner
+       w: cursor
+       ": quoted string
+       (: parented string
+
+Folding:
+zo -- open fold (right arrow)
+zc -- close fold
+za -- toggle fold
+zm -- close all folds one level (more)
+zr -- open all folds one level (reduce)
+
+Rails Navigation:
+gf     -- springt zum Symbol under cursor
+CTRL-^ -- springt zurück
+:A     -- alternate file, i.A. Testfile
+:R     -- related file, Kontext-abhängig (z.B. Controller Action -> View)
+
+Tab Navigation:
+:tabnew
+:tabclose
+CTRL-PageUp / CTRL-PageDown
+
+Window Navigation:
+:vsplit -> CTRL-w v -- vertical split
+:vnew               -- vertical split new
+CTRL-W Arrow	    -- springt zwischen Windows
+
+Nerdcommenter:
+[count]<leader>c<space> -- toggle comment
+
+vim-matchit:
+% -- bounce from do to end, etc.
+
+vim-surround:
+csXY -- change surrounding X to Y
