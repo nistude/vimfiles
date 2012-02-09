@@ -9,19 +9,26 @@ set showcmd
 set showmatch
 
 " Highlighting
-colorscheme desert
 syntax on
+set background=dark
+colorscheme desert
 highlight OverLength ctermfg=red
 match OverLength /\%>80v.\+/
 "highlight ColorColumn ctermbg=darkgrey
 "set colorcolumn=80
 
 " Editing
+set autoindent
 set backspace=indent,eol,start
+set cindent
 set esckeys
+set expandtab
+set list
 set listchars=trail:.,extends:>,tab:>-
 set nolist
 set pastetoggle=<F12>
+set shiftwidth=2
+set softtabstop=2
 
 " Filetypes
 filetype off " forces reload
@@ -34,12 +41,7 @@ au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec foldenable foldlevel=2
 
-" Folding settings
-" zo -- open fold (right arrow)
-" zc -- close fold
-" za -- toggle fold
-" zm -- close folds one level (more)
-" zr -- open all folds one level (reduce)
+" Folding
 " syntax or indent
 set foldmethod=syntax
 set foldnestmax=5
@@ -54,15 +56,6 @@ set smartcase
 
 " Completions
 set wildmenu
-
-" Navigating Tabs
-""   :tabnew
-""   :tabclose
-""   CTRL-PageUp / CTRL-PageDown
-
-" Navigating Windows
-""   vertical split	:vsplit -> CTRL-w v
-""   vertical split new	:vnew
 
 " Editor behaviour
 "" format current paragraph according to textwidth
@@ -85,29 +78,10 @@ au FilterWritePre * :call TrimWhiteSpace()
 au BufWritePre * :call TrimWhiteSpace()
 
 " Languages
-au FileType cucumber set ai et list sts=2 sw=2
-au FileType eruby set ai cindent et list sts=2 sw=2
 au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
-au FileType html set ai cindent et list sts=2 sw=2
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
-
-au FileType json set ai et sts=4
-au FileType markdown set ai et formatoptions=tcroqn2 list sts=4
-
-au FileType perl set ai cindent
+au FileType html let g:html_indent_tags = g:html_indent_tags.'\|p'
+au FileType json set sts=4
+au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
-au FileType puppet set ai et list sts=2 sw=2
-
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
-au FileType ruby set ai cindent et list sts=2 sw=2
-
-au FileType yaml set ai cindent et list sts=2 sw=2
-
-" Reminders
-"" nerdcommenter:
-""   toggle comment: [count]<leader>c<space>
-""   <leader> == \
-"" vim-matchit:
-""   % to bounce from do to end, etc.
-"" vim-surround:
-""   change surrounding X to Y: csXY
