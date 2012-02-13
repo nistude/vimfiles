@@ -8,15 +8,6 @@ set ruler
 set showcmd
 set showmatch
 
-" Highlighting
-syntax on
-set background=dark
-colorscheme desert
-highlight OverLength ctermfg=red
-match OverLength /\%>80v.\+/
-"highlight ColorColumn ctermbg=darkgrey
-"set colorcolumn=80
-
 " Editing
 set autoindent
 set backspace=indent,eol,start
@@ -41,6 +32,15 @@ au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec foldenable foldlevel=2
 
+" Highlighting
+syntax on
+set background=dark
+colorscheme hemisu
+highlight OverLength ctermfg=red
+match OverLength /\%>80v.\+/
+"highlight ColorColumn ctermbg=darkgrey
+"set colorcolumn=80
+
 " Folding
 " syntax or indent
 set foldmethod=syntax
@@ -53,6 +53,8 @@ set hlsearch
 set ignorecase
 set incsearch
 set smartcase
+" does not interfere with insert mode
+nnoremap <silent> <return> :noh<return>
 
 " Completions
 set wildmenu
@@ -82,6 +84,7 @@ au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html let g:html_indent_tags = g:html_indent_tags.'\|p'
 au FileType json set sts=4
+au FileType mail colorscheme desert
 au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)

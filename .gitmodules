@@ -33,3 +33,8 @@
 [submodule "vim/bundle/xmledit"]
 	path = vim/bundle/xmledit
 	url = https://github.com/nistude/xmledit.git
+	ignore = untracked
+[submodule "vim/bundle/hemisu"]
+	path = vim/bundle/hemisu
+	url = https://github.com/noahfrederick/Hemisu.git
+	ignore = untracked
