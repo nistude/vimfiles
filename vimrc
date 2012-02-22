@@ -31,6 +31,7 @@ au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
+au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 
 " Highlighting
@@ -41,6 +42,10 @@ highlight OverLength ctermfg=red
 match OverLength /\%>80v.\+/
 "highlight ColorColumn ctermbg=darkgrey
 "set colorcolumn=80
+" tweak mail highlighting
+hi def link mailSubject Statement
+hi def link mailQuoted1 Delimiter
+hi def link mailQuoted2 Comment
 
 " Folding
 " syntax or indent
