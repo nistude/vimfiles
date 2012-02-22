@@ -31,6 +31,7 @@ au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec foldenable foldlevel=2
+au BufRead,BufNewFile Guardfile set ft=ruby
 
 " Highlighting
 syntax on
@@ -40,6 +41,10 @@ highlight OverLength ctermfg=red
 match OverLength /\%>80v.\+/
 "highlight ColorColumn ctermbg=darkgrey
 "set colorcolumn=80
+" tweak mail highlighting
+hi def link mailSubject Statement
+hi def link mailQuoted1 Delimiter
+hi def link mailQuoted2 Comment
 
 " Folding
 " syntax or indent
@@ -84,7 +89,6 @@ au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html let g:html_indent_tags = g:html_indent_tags.'\|p'
 au FileType json set sts=4
-au FileType mail colorscheme desert
 au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
