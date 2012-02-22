@@ -30,7 +30,8 @@ au BufRead,BufNewFile *.html.erb set ft=eruby.html
 au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
-au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec foldenable foldlevel=2
+au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
+au BufRead,BufNewFile Vagrantfile set ft=ruby
 
 " Highlighting
 syntax on
@@ -73,6 +74,8 @@ function TrimWhiteSpace()
   %s/\s*$//
   ''
 :endfunction
+" Restore cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 au FileWritePre * :call TrimWhiteSpace()
 au FileAppendPre * :call TrimWhiteSpace()
@@ -84,7 +87,6 @@ au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html let g:html_indent_tags = g:html_indent_tags.'\|p'
 au FileType json set sts=4
-au FileType mail colorscheme desert
 au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)

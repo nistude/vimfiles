@@ -5,6 +5,7 @@ ciX -- change inner
        w: cursor
        ": quoted string
        (: parented string
+n G -- goto line n
 
 Folding:
 zo -- open fold (right arrow)
