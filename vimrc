@@ -46,6 +46,8 @@ match OverLength /\%>80v.\+/
 hi def link mailSubject Statement
 hi def link mailQuoted1 Delimiter
 hi def link mailQuoted2 Comment
+" tweak gitcommit highlighting
+hi def link gitcommitOverflow Error
 
 " Folding
 " syntax or indent
@@ -95,3 +97,4 @@ au FileType json set sts=4
 au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
+au FileType sh set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
