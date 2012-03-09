@@ -38,10 +38,10 @@ au BufRead,BufNewFile Vagrantfile set ft=ruby
 syntax on
 set background=dark
 colorscheme hemisu
-highlight OverLength ctermfg=red
-match OverLength /\%>80v.\+/
+"highlight OverLength ctermfg=red
+"match OverLength /\%>80v.\+/
 "highlight ColorColumn ctermbg=darkgrey
-"set colorcolumn=80
+set colorcolumn=80
 " tweak mail highlighting
 hi def link mailSubject Statement
 hi def link mailQuoted1 Delimiter
