@@ -33,6 +33,7 @@ au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Vagrantfile set ft=ruby
+au BufRead,BufNewFile */chef_*/*.rb set ft=chef.ruby
 
 " Highlighting
 syntax on
@@ -98,3 +99,4 @@ au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType sh set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+au FileType snippet set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
