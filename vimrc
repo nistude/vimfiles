@@ -2,11 +2,13 @@
 let loaded_matchparen = 1
 let xml_use_xhtml = 1
 
+set cursorline
 set modelines=0
 set nocompatible
 set ruler
 set showcmd
 set showmatch
+set tags+=gems.tags
 
 " Editing
 set autoindent
@@ -64,6 +66,12 @@ nnoremap <silent> <return> :noh<return>
 
 " Completions
 set wildmenu
+
+" Statusbar
+set laststatus=2
+let g:Powerline_symbols = 'unicode'
+call Pl#Theme#RemoveSegment('mode_indicator')
+call Pl#Theme#RemoveSegment('fugitive:branch')
 
 " Editor behaviour
 "" format current paragraph according to textwidth
