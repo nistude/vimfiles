@@ -38,3 +38,12 @@
 	path = vim/bundle/hemisu
 	url = https://github.com/noahfrederick/Hemisu.git
 	ignore = untracked
+[submodule "vim/bundle/vim-powerline"]
+	path = vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/vim-smartinput"]
+	path = vim/bundle/vim-smartinput
+	url = git://github.com/kana/vim-smartinput.git

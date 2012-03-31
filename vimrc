@@ -1,12 +1,20 @@
+" Load pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+filetype plugin indent on
+
 " General
 let loaded_matchparen = 1
 let xml_use_xhtml = 1
 
+set cursorline
 set modelines=0
 set nocompatible
 set ruler
 set showcmd
 set showmatch
+set tags+=gems.tags
 
 " Editing
 set autoindent
@@ -22,10 +30,6 @@ set shiftwidth=2
 set softtabstop=2
 
 " Filetypes
-filetype off " forces reload
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype plugin indent on
 au BufRead,BufNewFile *.html.erb set ft=eruby.html
 au BufRead,BufNewFile *.md set ft=markdown
 au BufRead,BufNewFile *.rake set ft=ruby
@@ -33,7 +37,7 @@ au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Vagrantfile set ft=ruby
-au BufRead,BufNewFile */chef_*/*.rb set ft=chef.ruby
+call smartinput#define_rule({'at': '\%#', 'char': '{', 'input': '{  }<Left><Left>', 'filetype': ['ruby']})
 
 " Highlighting
 syntax on
@@ -67,6 +71,12 @@ nnoremap <silent> <return> :noh<return>
 
 " Completions
 set wildmenu
+
+" Statusbar
+set laststatus=2
+let g:Powerline_symbols = 'unicode'
+call Pl#Theme#RemoveSegment('mode_indicator')
+call Pl#Theme#RemoveSegment('fugitive:branch')
 
 " Editor behaviour
 "" format current paragraph according to textwidth
