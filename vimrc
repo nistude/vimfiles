@@ -37,7 +37,6 @@ au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Vagrantfile set ft=ruby
-call smartinput#define_rule({'at': '\%#', 'char': '{', 'input': '{  }<Left><Left>', 'filetype': ['ruby']})
 
 " Highlighting
 syntax on
@@ -103,7 +102,6 @@ au BufWritePre * :call TrimWhiteSpace()
 " Languages
 au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
-au FileType html let g:html_indent_tags = g:html_indent_tags.'\|p'
 au FileType json set sts=4
 au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
