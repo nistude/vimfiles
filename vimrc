@@ -77,6 +77,12 @@ let g:Powerline_symbols = 'unicode'
 call Pl#Theme#RemoveSegment('mode_indicator')
 call Pl#Theme#RemoveSegment('fugitive:branch')
 
+" Allow Ctrl+PgUp/PgDn in tmux
+if &term == "screen-256color"
+  set t_kN=[6;*~
+  set t_kP=[5;*~
+endif
+
 " Editor behaviour
 "" format current paragraph according to textwidth
 imap <C-J> <C-O>gqap
