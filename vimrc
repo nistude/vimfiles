@@ -22,7 +22,6 @@ set backspace=indent,eol,start
 set cindent
 set esckeys
 set expandtab
-set list
 set listchars=trail:.,extends:>,tab:>-
 set nolist
 set pastetoggle=<F12>
@@ -42,9 +41,6 @@ au BufRead,BufNewFile Vagrantfile set ft=ruby
 syntax on
 set background=dark
 colorscheme hemisu
-"highlight OverLength ctermfg=red
-"match OverLength /\%>80v.\+/
-"highlight ColorColumn ctermbg=darkgrey
 set colorcolumn=80
 " tweak mail highlighting
 hi def link mailSubject Statement
@@ -52,6 +48,9 @@ hi def link mailQuoted1 Delimiter
 hi def link mailQuoted2 Comment
 " tweak gitcommit highlighting
 hi def link gitcommitOverflow Error
+
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " Folding
 " syntax or indent
@@ -91,19 +90,21 @@ vmap <C-J>      gq
 "" set title in xterm
 let &titlestring = expand("%:t")
 set title
-"" http://vim.wikia.com/wiki/Remove_unwanted_spaces
-"" Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-:endfunction
+
+" highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=88
+match ExtraWhitespace /\s\+$/
+" activate for all windows
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+" don't match in insert mode
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+" manually remove trailing whitespace
+nnoremap <leader>w mz:%s/\s\+$//<cr>:let @/=''<cr>`z
+
 " Restore cursor position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-
-au FileWritePre * :call TrimWhiteSpace()
-au FileAppendPre * :call TrimWhiteSpace()
-au FilterWritePre * :call TrimWhiteSpace()
-au BufWritePre * :call TrimWhiteSpace()
 
 " Languages
 au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)

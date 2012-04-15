@@ -20,6 +20,10 @@ CTRL-^ -- springt zurück
 :A     -- alternate file, i.A. Testfile
 :R     -- related file, Kontext-abhängig (z.B. Controller Action -> View)
 
+Completion:
+CTRL-p        -- complete word
+CTRL-x CTRL-l -- complete whole line, e.g. for require statements
+
 Tab Navigation:
 :tabnew
 :tabclose
