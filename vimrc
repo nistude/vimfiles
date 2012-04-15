@@ -145,9 +145,3 @@ endfunction
 
 " String To Array: 'foo' -> ['foo']
 nmap sta cs']<cr>l<cr>csw'
-
-" Custom smartinput rules.
-" Do not close a '[' if there is a ", ' or number after the cursor.
-call smartinput#define_rule({'at': '\%#\_["''0-9]', 'char': '[', 'input': '['})
-" Do not close a '{' if there is a ", ' or number after the cursor.
-call smartinput#define_rule({'at': '\%#\_["''0-9]', 'char': '{', 'input': '{'})
