@@ -14,7 +14,6 @@ set nocompatible
 set ruler
 set showcmd
 set showmatch
-set tags+=gems.tags
 
 " Editing
 set autoindent
@@ -64,6 +63,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set smartcase
+let g:ctrlp_extensions = ['tag', 'buffertag']
 " does not interfere with insert mode
 nnoremap <silent> <return> :noh<return>
 
