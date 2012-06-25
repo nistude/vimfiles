@@ -14,7 +14,6 @@ set nocompatible
 set ruler
 set showcmd
 set showmatch
-set tags+=gems.tags
 
 " Editing
 set autoindent
@@ -64,6 +63,12 @@ set hlsearch
 set ignorecase
 set incsearch
 set smartcase
+let g:ctrlp_extensions = ['tag']
+let g:ctrlp_cmd = 'CtrlPTag'
+nnoremap <silent> <F9> :TagbarToggle<CR>
+" use :tjump by default (jump to single tag or list multiple)
+nnoremap <c-]> g<c-]>
+vnoremap <c-]> g<c-]>
 " does not interfere with insert mode
 nnoremap <silent> <return> :noh<return>
 
