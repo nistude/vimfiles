@@ -2,9 +2,10 @@ Editing:
 C   -- delete to EOL + insert mode
 cc  -- change line
 ciX -- change inner
-       w: cursor
+       w: word
        ": quoted string
        (: parented string
+       t: tagged body <tag>
 n G -- goto line n
 
 Folding:
@@ -23,6 +24,17 @@ CTRL-^ -- springt zurück
 Completion:
 CTRL-p        -- complete word
 CTRL-x CTRL-l -- complete whole line, e.g. for require statements
+
+Deletion:
+diX -- delete inner
+       w: word
+       p: paragraph
+       ": quoted string
+       (: parented string
+       t: tagged string
+daX -- delete all, like inner but includes delimiter
+yiX -- yank inner
+yaX -- yank all
 
 Tab Navigation:
 :tabnew
