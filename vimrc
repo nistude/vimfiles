@@ -114,7 +114,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Languages
 au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
-au FileType javascript set sts=4 ts=4 sw=4
 au FileType json set sts=4
 au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
