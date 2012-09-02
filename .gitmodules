@@ -58,3 +58,9 @@
 	path = vim/bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
 	ignore = untracked
+[submodule "vim/bundle/vim-r-plugin"]
+	path = vim/bundle/vim-r-plugin
+	url = https://github.com/vim-scripts/Vim-R-plugin.git
+[submodule "vim/bundle/screen"]
+	path = vim/bundle/screen
+	url = https://github.com/vim-scripts/Screen-vim---gnu-screentmux.git
