@@ -149,4 +149,4 @@ function! AlignLine(line, sep, maxpos, extra)
 endfunction
 
 " run rspec on current file
-map <leader>t :w\|:!rspec %<cr>
+map <leader>t :w\|:!echo "Starting up..." && rspec %<cr>
