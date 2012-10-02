@@ -95,6 +95,9 @@ vmap <C-J>      gq
 "" set title in xterm
 let &titlestring = expand("%:t")
 set title
+" indented paste
+nnoremap <leader>p p`[v`]=
+nnoremap <leader>P P`[v`]=
 
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=88
