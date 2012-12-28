@@ -7,6 +7,8 @@ ciX -- change inner
        (: parented string
        t: tagged body <tag>
 n G -- goto line n
+"+y -- yank to system clipboard
+"+p -- paste from system clipboard
 
 Folding:
 zo -- open fold (right arrow)
