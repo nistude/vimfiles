@@ -151,5 +151,48 @@ function! AlignLine(line, sep, maxpos, extra)
   return m[1] . spaces . m[2]
 endfunction
 
-" run rspec on current file
-map <leader>t :w\|:!echo "Starting up..." && rspec %<cr>
+" test stuff
+" detects specs and features, uses zeus or bundle exec
+map <leader>s :call RunSingleTestCase()<cr>
+map <leader>t :call RunCurrentTestFile()<cr>
+map <leader>l :call RunLastTestFile()<cr>
+
+function! RunSingleTestCase()
+  let l:command = TestRunner() . @% . ':' . line('.')
+  call SetLastTestCommand(l:command)
+  call RunTest(l:command)
+endfunction
+
+function! RunCurrentTestFile()
+  let l:command = TestRunner() . @%
+  call SetLastTestCommand(l:command)
+  call RunTest(l:command)
+endfunction
+
+function! RunLastTestFile()
+  if exists('t:last_test_command')
+    call RunTest(t:last_test_command)
+  endif
+endfunction
+
+function! TestRunner()
+  if findfile('.zeus.sock', '.;') != ''
+    let l:testrunner = 'zeus'
+  else
+    let l:testrunner = 'bundle exec'
+  endif
+
+  if match(expand('%'), '_spec\.rb$') != -1
+    return l:testrunner . ' rspec '
+  elseif match(expand('%'), '\.feature$') != -1
+    return l:testrunner . ' cucumber '
+  endif
+endfunction
+
+function! SetLastTestCommand(command)
+  let t:last_test_command = a:command
+endfunction
+
+function! RunTest(command)
+  execute ":w\|!clear && echo " . a:command . " && echo && " . a:command
+endfunction
