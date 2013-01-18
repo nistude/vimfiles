@@ -14,7 +14,7 @@ type the following from wherever you want to install:
 
 ## Adding new submodules
 
-    git add submodule <repository> <path>
+    git submodule add <repository> <path>
 
 Add `ignore = untracked` to the new submodule's entry in .gitmodules and
 commit everything.

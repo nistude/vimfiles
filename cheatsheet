@@ -9,6 +9,7 @@ ciX -- change inner
 n G -- goto line n
 "+y -- yank to system clipboard
 "+p -- paste from system clipboard
+V   -- visual line
 
 Folding:
 zo -- open fold (right arrow)
