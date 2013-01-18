@@ -70,3 +70,7 @@
 	path = vim/bundle/vim-eunuch
 	url = git://github.com/tpope/vim-eunuch.git
 	ignore = untracked
+[submodule "vim/bundle/easygrep"]
+	path = vim/bundle/easygrep
+	url = https://github.com/vim-scripts/EasyGrep.git
+	ignore = untracked

@@ -72,6 +72,14 @@ vnoremap <c-]> g<c-]>
 " does not interfere with insert mode
 nnoremap <silent> <return> :noh<return>
 
+" Search and Replace
+" 0 - All
+" 1 - Buffers
+" 2 - Track
+let g:EasyGrepMode=2
+let g:EasyGrepRecursive=1
+let g:EasyGrepIgnoreCase=0
+
 " Completions
 set wildmenu
 

@@ -57,3 +57,6 @@ vim-matchit:
 
 vim-surround:
 csXY -- change surrounding X to Y
+
+easygrep:
+<leader>vr -- replace occurances of word under cursor or visual block
