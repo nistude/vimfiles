@@ -186,8 +186,10 @@ endfunction
 function! TestRunner()
   if findfile('.zeus.sock', '.;') != ''
     let l:testrunner = 'zeus'
-  else
+  elseif findfile('Gemfile', '.;') != ''
     let l:testrunner = 'bundle exec'
+  else
+    let l:testrunner = ''
   endif
 
   if match(expand('%'), '_spec\.rb$') != -1
