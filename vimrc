@@ -26,6 +26,8 @@ set nolist
 set pastetoggle=<F12>
 set shiftwidth=2
 set softtabstop=2
+" copy selection to system clipboard
+vmap <C-c> "+y
 
 " Filetypes
 au BufRead,BufNewFile *.html.erb set ft=eruby.html
@@ -125,10 +127,11 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Languages
 au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
-au FileType json set sts=4
+au FileType json set shiftwidth=4 softtabstop=4
 au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
+au FileType scss set shiftwidth=4 softtabstop=4
 au FileType sh set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 au FileType snippet set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
@@ -193,7 +196,7 @@ function! TestRunner()
   endif
 
   if match(expand('%'), '_spec\.rb$') != -1
-    return l:testrunner . ' rspec '
+    return l:testrunner . ' rspec --order=default '
   elseif match(expand('%'), '\.feature$') != -1
     return l:testrunner . ' cucumber '
   endif
