@@ -189,10 +189,16 @@ function! RunLastTestFile()
 endfunction
 
 function! TestRunner()
+  if findfile('.zeus.sock', '.;') != ''
+    let zeus = 1
+  else
+    let zeus = 0
+  endif
+
   if match(expand('%'), '_spec\.rb$') != -1
-    return 'rspec'
+    return zeus ? 'zspec' : 'rspec'
   elseif match(expand('%'), '\.feature$') != -1
-    return 'cucumber'
+    return zeus ? 'zucumber' : 'cucumber'
   endif
 endfunction
 

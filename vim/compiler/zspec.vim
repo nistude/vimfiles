@@ -7,7 +7,7 @@
 if exists("current_compiler")
   finish
 endif
-let current_compiler = "rspec"
+let current_compiler = "zspec"
 
 if exists(":CompilerSet") != 2		" older Vim always used :setlocal
   command -nargs=* CompilerSet setlocal <args>
@@ -16,11 +16,7 @@ endif
 let s:cpo_save = &cpo
 set cpo-=C
 
-if findfile('.zeus.sock', '.;') != ''
-  CompilerSet makeprg="zeus rspec"
-else
-  CompilerSet makeprg=rspec
-endif
+CompilerSet makeprg=zspec
 
 CompilerSet errorformat=
     \%f:%l:\ %tarning:\ %m,
