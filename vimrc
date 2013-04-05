@@ -169,43 +169,38 @@ map <leader>t :call RunCurrentTestFile()<cr>
 map <leader>l :call RunLastTestFile()<cr>
 
 function! RunSingleTestCase()
-  let l:command = TestRunner() . @% . ':' . line('.')
-  call SetLastTestCommand(l:command)
-  call RunTest(l:command)
+  let runner = TestRunner()
+  let file = expand('%') . ':' . line('.')
+  call RememberTestCommand(runner, file)
+  call RunTest(runner, file)
 endfunction
 
 function! RunCurrentTestFile()
-  let l:command = TestRunner() . @%
-  call SetLastTestCommand(l:command)
-  call RunTest(l:command)
+  let runner = TestRunner()
+  let file = expand('%')
+  call RememberTestCommand(runner, file)
+  call RunTest(runner, file)
 endfunction
 
 function! RunLastTestFile()
   if exists('t:last_test_command')
-    call RunTest(t:last_test_command)
+    call RunTest(t:last_test_command, t:last_test_file)
   endif
 endfunction
 
 function! TestRunner()
-  if findfile('.zeus.sock', '.;') != ''
-    let l:testrunner = 'zeus'
-  elseif findfile('Gemfile', '.;') != ''
-    let l:testrunner = 'bundle exec'
-  else
-    let l:testrunner = ''
-  endif
-
   if match(expand('%'), '_spec\.rb$') != -1
-    return l:testrunner . ' rspec --order=default '
+    return 'rspec'
   elseif match(expand('%'), '\.feature$') != -1
-    return l:testrunner . ' cucumber '
+    return 'cucumber'
   endif
 endfunction
 
-function! SetLastTestCommand(command)
+function! RememberTestCommand(command, file)
   let t:last_test_command = a:command
+  let t:last_test_file = a:file
 endfunction
 
-function! RunTest(command)
-  execute ":w\|!clear && echo " . a:command . " && echo && " . a:command
+function! RunTest(command, file)
+  execute ":w\|Dispatch " . a:command . ' ' a:file
 endfunction
