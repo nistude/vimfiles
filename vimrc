@@ -14,6 +14,8 @@ set nocompatible
 set ruler
 set showcmd
 set showmatch
+set splitbelow
+set splitright
 
 " Editing
 set autoindent
