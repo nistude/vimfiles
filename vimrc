@@ -93,6 +93,11 @@ let g:Powerline_symbols = 'unicode'
 call Pl#Theme#RemoveSegment('mode_indicator')
 call Pl#Theme#RemoveSegment('fugitive:branch')
 
+" syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_auto_jump=1
+
 " Allow Ctrl+PgUp/PgDn in tmux
 if &term == "screen-256color"
   set t_kN=[6;*~
@@ -128,6 +133,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " Languages
 au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
+au FileType gitconfig set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType json set shiftwidth=4 softtabstop=4
 au FileType markdown set formatoptions=tcroqn2 sts=4
