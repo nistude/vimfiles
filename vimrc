@@ -119,6 +119,9 @@ set title
 nnoremap <leader>p p`[v`]=
 nnoremap <leader>P P`[v`]=
 
+" delete mail body upto, but not including signature
+nnoremap <leader>d :.,/^-- /-1d<return>:noh<return>O
+
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=88
 match ExtraWhitespace /\s\+$/
@@ -138,6 +141,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType gitconfig set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
+au FileType javascript set shiftwidth=4 softtabstop=4
 au FileType json set shiftwidth=4 softtabstop=4
 au FileType markdown set formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
