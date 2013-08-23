@@ -77,12 +77,15 @@ vnoremap <c-]> g<c-]>
 nnoremap <silent> <return> :noh<return>
 
 " Search and Replace
-" 0 - All
-" 1 - Buffers
-" 2 - Track
-let g:EasyGrepMode=2
+if executable("ag")
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+let g:EasyGrepMode=0
 let g:EasyGrepRecursive=1
 let g:EasyGrepIgnoreCase=0
+let g:EasyGrepCommand=1
+let g:EasyGrepEveryMatch=1
 
 " Completions
 set wildmenu
