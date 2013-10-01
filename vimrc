@@ -120,7 +120,9 @@ nnoremap <leader>p p`[v`]=
 nnoremap <leader>P P`[v`]=
 
 " delete mail body upto, but not including signature
-nnoremap <leader>d :.,/^-- /-1d<return>:noh<return>O
+nnoremap <leader>dm :.,/^-- /-1d<return>:noh<return>O
+" git shortcuts
+nnoremap <leader>ga :Git add .<return><return>:Gcommit<return>
 
 " highlight trailing whitespace
 highlight ExtraWhitespace ctermbg=88
