@@ -40,6 +40,12 @@ au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
 au BufRead,BufNewFile Guardfile set ft=ruby
 au BufRead,BufNewFile Vagrantfile set ft=ruby
 
+" zg -> add good word to dictionary
+" z= -> suggest alternative
+au BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
+au FileType gitcommit setlocal spell spelllang=en_gb
+au FileType mail setlocal spell spelllang=en_gb
+
 " Highlighting
 syntax on
 set background=dark
