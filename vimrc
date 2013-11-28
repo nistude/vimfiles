@@ -147,16 +147,16 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " Languages
 au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
-au FileType gitconfig set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+au FileType gitconfig setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
-au FileType javascript set shiftwidth=4 softtabstop=4
-au FileType json set shiftwidth=4 softtabstop=4
-au FileType markdown set formatoptions=tcroqn2 sts=4
+au FileType javascript setlocal shiftwidth=4 softtabstop=4
+au FileType json setlocal shiftwidth=4 softtabstop=4
+au FileType markdown setlocal formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
-au FileType scss set shiftwidth=4 softtabstop=4
-au FileType sh set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
-au FileType snippet set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+au FileType scss setlocal shiftwidth=4 softtabstop=4
+au FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+au FileType snippet setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " align blocks on first '='
 command! -nargs=? -range Align <line1>,<line2>call AlignSection('<args>')
