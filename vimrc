@@ -8,6 +8,9 @@ filetype plugin indent on
 let loaded_matchparen = 1
 let xml_use_xhtml = 1
 
+" http://stackoverflow.com/questions/16902317/vim-slow-with-ruby-syntax-highlighting
+set re=1
+
 set cursorline
 set modelines=0
 set nocompatible
