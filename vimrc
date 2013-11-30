@@ -128,6 +128,16 @@ set title
 nnoremap <leader>p p`[v`]=
 nnoremap <leader>P P`[v`]=
 
+" Snake Paste for simple_bdd gem
+map <leader>sp :call SnakeCasePaste()<cr>"ap==$a<cr>
+
+function! SnakeCasePaste()
+  let statement = substitute(@", "^.* \\('\\|\"\\)\\(.*\\)\\('\\|\"\\)", '\2', '')
+  let method_name = substitute(statement, " ", "_", "g")
+  let method = 'def ' . tolower(method_name)
+  call setreg('a', method)
+endfunction
+
 " delete mail body upto, but not including signature
 nnoremap <leader>dm :.,/^-- /-1d<return>:noh<return>O
 " git shortcuts
