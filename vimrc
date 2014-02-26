@@ -45,9 +45,10 @@ au BufRead,BufNewFile Vagrantfile set ft=ruby
 
 " zg -> add good word to dictionary
 " z= -> suggest alternative
-au BufRead,BufNewFile *.md setlocal spell spelllang=en_gb
-au FileType gitcommit setlocal spell spelllang=en_gb
-au FileType mail setlocal spell spelllang=en_gb
+set spelllang=en_gb,de_de
+au BufRead,BufNewFile *.md setlocal spell
+au FileType gitcommit setlocal spell
+au FileType mail setlocal spell
 
 " Highlighting
 syntax on
