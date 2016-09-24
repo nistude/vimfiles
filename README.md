@@ -9,8 +9,8 @@ To get started, just move your existing .vim and .vimrc out of the way and
 type the following from wherever you want to install:
 
     git clone --recursive git://github.com/nistude/vimfiles.git
-    ln -s $PWD/vim ~/.vim
-    ln -s $PWD/vimrc ~/.vimrc
+    ln -s $PWD/vimfiles/vim ~/.vim
+    ln -s $PWD/vimfiles/vimrc ~/.vimrc
 
 ## Adding new submodules
 
