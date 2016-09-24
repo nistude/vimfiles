@@ -41,7 +41,9 @@ au BufRead,BufNewFile *.rake set ft=ruby
 au BufRead,BufNewFile *.ronn set ft=markdown
 au BufRead,BufNewFile *_spec.rb set ft=ruby.rspec
 au BufRead,BufNewFile Guardfile set ft=ruby
+au BufRead,BufNewFile Jenkinsfile set ft=groovy
 au BufRead,BufNewFile Vagrantfile set ft=ruby
+au BufRead,BufNewFile */cloud/deployments/*.jinja set ft=sls
 
 " zg -> add good word to dictionary
 " z= -> suggest alternative
@@ -162,14 +164,15 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Languages
 au FileType eruby :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType gitconfig setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+au FileType groovy setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType html :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType javascript setlocal shiftwidth=4 softtabstop=4
-au FileType json setlocal shiftwidth=4 softtabstop=4
+au FileType json setlocal shiftwidth=2 softtabstop=2
 au FileType markdown setlocal formatoptions=tcroqn2 sts=4
 au FileType puppet :call ExtractSnips('~/.vim/bundle/vim-puppet/snippets', &ft)
 au FileType rspec :call ExtractSnips('~/.vim/snippets', &ft)
 au FileType scss setlocal shiftwidth=4 softtabstop=4
-au FileType sh setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+au FileType sh setlocal tabstop=2 softtabstop=2 shiftwidth=2
 au FileType snippet setlocal tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
 
 " align blocks on first '='
