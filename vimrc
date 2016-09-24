@@ -74,6 +74,19 @@ set foldnestmax=5
 set nofoldenable
 set foldlevel=2
 
+" syntax checking
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+nnoremap [l :lprevious<return>
+nnoremap ]l :lnext<return>
+
 " Searching
 set hlsearch
 set ignorecase
